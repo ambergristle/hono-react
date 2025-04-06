@@ -32,8 +32,6 @@ app.get('*', reactRenderer(({ children }) => (
     <Link href='/src/style.css' rel='stylesheet' /> */}
     </head>
     <body>{children}</body>
-    <script type="module" src="/src/server/refresh.js" />
-
     <script type='module' src="/src/client/index.tsx" />
   </html>
 )))
