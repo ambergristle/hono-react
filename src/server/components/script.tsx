@@ -43,7 +43,6 @@ export const Script = (options: Options): any => {
     }
     return <></>
   } else {
-    console.log('dev')
     return <script type='module' async={!!options.async} src={src} nonce={options.nonce}></script>
   }
 }

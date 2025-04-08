@@ -3,8 +3,9 @@ import { reactRenderer } from '@hono/react-renderer';
 import react from '@vitejs/plugin-react';
 import { createServer as createViteServer } from 'vite'
 import { raw } from "hono/html";
-import { Script } from "./script";
+import { Script } from "./components/script";
 import { serveStatic } from "hono/bun";
+import { Link } from "./components/link";
 
 
 // declare module 'hono' {
@@ -33,8 +34,8 @@ app.get('*', reactRenderer(({ children }) => (
       <meta charSet='UTF-8' />
       <meta name='viewport' content='width=device-width, initial-scale=1.0' />
       {/* <script type="module" src="/refresh.js" /> */}
-      {/* <Script /> */}
-      {/* <Link href='/src/style.css' rel='stylesheet' /> */}
+      <Script />
+      <Link href='/src/style.css' rel='stylesheet' />
       <script type="module" src="/src/client/index.tsx" />
     </head>
     <body>{children}</body>

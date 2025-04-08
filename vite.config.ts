@@ -4,6 +4,8 @@ import devServer from '@hono/vite-dev-server';
 import bunAdapter from '@hono/vite-dev-server/bun';
 import react from '@vitejs/plugin-react';
 import ssrHotReload from 'vite-plugin-ssr-hot-reload';
+import tailwindcss from '@tailwindcss/vite'
+
 
 export default defineConfig({
   plugins: [
@@ -43,6 +45,6 @@ export default defineConfig({
       entry: ['src/server/*'],
       injectReactRefresh: true,
     }),
-    // build(),
+    tailwindcss(),
   ],
 });
