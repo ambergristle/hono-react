@@ -36,15 +36,15 @@ export default defineConfig({
         }
       },
     },
+    ssrHotReload({
+      entry: ['src/server/*'],
+      injectReactRefresh: true,
+    }),
     devServer({
       adapter: bunAdapter,
       entry: 'src/server/index.tsx', // The file path of your application.
     }),
     react(),
-    ssrHotReload({
-      entry: ['src/server/*'],
-      injectReactRefresh: true,
-    }),
     tailwindcss(),
   ],
 });
