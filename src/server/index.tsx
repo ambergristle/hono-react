@@ -2,6 +2,8 @@ import { Hono } from "hono";
 import { reactRenderer } from '@hono/react-renderer';
 import { Script } from "./components/script";
 import { Link } from "./components/link";
+import { createMiddleware } from "hono/factory";
+import { validator } from "hono/validator";
 
 
 // declare module 'hono' {
@@ -19,8 +21,9 @@ import { Link } from "./components/link";
 const app = new Hono();
 
 const api = app
-  .basePath('/api')
-  .get('/', (c) => c.text('ok'));
+.basePath('/api')
+.use('*', validator('json', () => ({ data: ''})))
+  .get('/', (c) => c.text(c.req.valid('json')));
 
 export type AppAPI = typeof api;
 
